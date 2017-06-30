@@ -25,6 +25,9 @@ var argv = require('yargs')
         alias: 'port',
         describe: 'Internal http server port',
     })
+    .option('headers',{
+        describe: 'Set http header options'
+    })
     .require('port')
     .help('help', 'Show this help and exit')
     .version(require('../package').version)
@@ -39,6 +42,7 @@ if (typeof argv.port !== 'number') {
 var opt = {
     host: argv.host,
     port: argv.port,
+    headers: argv.headers,
     local_host: argv['local-host'],
     subdomain: argv.subdomain,
 };
